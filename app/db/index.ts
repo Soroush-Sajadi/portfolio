@@ -2,7 +2,7 @@ import ETC from "@/app/statics/ETC.png";
 import Salt from "@/app/statics/Salt.jpeg";
 import Kaptena from "@/app/statics/Kaptena.png";
 import Netigate from "@/app/statics/Netigate.jpeg";
-import { url } from "inspector";
+import { title } from "process";
 
 export const carrier = {
   description: {
@@ -15,4 +15,48 @@ export const carrier = {
     { name: "Kaptena", logo: Kaptena, url: "https://kaptena.se/" },
     { name: "Netigate", logo: Netigate, url: "https://www.netigate.net/" },
   ],
+  cv: {
+    frontend: {
+      title: "Frontend",
+      technologies: [
+        "React.js",
+        "Vue.js",
+        "Next.js",
+        "Microfrontend",
+        "Redux",
+        "Tailwind Css",
+        "Quasar",
+        "HTML",
+        "CSS,SASS",
+        "Cypress",
+      ],
+    },
+    backend: {
+      title: "Backend",
+      technologies: [
+        "Node.js",
+        "Python",
+        "Flask",
+        "Express",
+        "REST",
+        "MongoDB",
+        "Firebase",
+        "PostgreSQL",
+        "Azure DevOps",
+      ],
+    },
+
+    tools: {
+      title: "Tools",
+      technologies: [
+        "Visual Studio Code",
+        "Docker",
+        "Mocha",
+        "Jest",
+        "Git",
+        "TDD",
+        "Agile work methods",
+      ],
+    },
+  },
 };

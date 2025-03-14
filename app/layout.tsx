@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="bg-gray-950">
+        <div className="bg-gray-950 fixed w-full top-0 ">
           <Navbar />
           <div
             style={{ margin: "0 12.5%" }}

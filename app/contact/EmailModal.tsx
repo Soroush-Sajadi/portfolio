@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Modal } from "@/components/ui/Modal";
 import { Loading } from "@/components/ui/Loading";
 
@@ -15,6 +15,14 @@ export const EmailModal = ({
   onSendEmailResponse,
 }: EmailModalProps) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+
+  useEffect(() => {
+    setIsButtonDisabled(!email || !subject || !message);
+  }, [email, subject, message]);
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     setIsLoading(true);
@@ -39,6 +47,7 @@ export const EmailModal = ({
         }
       );
   };
+
   return (
     <div>
       <Modal isOpen={isOpen} onClose={onCloseModal}>
@@ -55,18 +64,31 @@ export const EmailModal = ({
             className="h-[3rem] shadow-lg font-serif text-black pl-4 focus:outline-none"
             placeholder="Your email"
             name="name"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
             className="h-[3rem] shadow-xl font-serif text-black pl-4 focus:outline-none"
             name="subject"
             placeholder="Subject"
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
           />
           <textarea
             className="h-[7rem] shadow-xl font-serif text-black pl-4 pt-2 focus:outline-none"
             placeholder="Message"
             name="message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
           />
-          <button className="text-black bg-[#25D366] mt-4 px-4 py-2 rounded hover:bg-[#28e070]">
+          <button
+            className={`text-black mt-4 px-4 py-2 rounded ${
+              isButtonDisabled
+                ? "bg-[#6d7785]"
+                : "bg-[#25D366] hover:bg-[#28e070]"
+            }`}
+            disabled={isButtonDisabled}
+          >
             Send
           </button>
         </form>
