@@ -5,7 +5,7 @@ import Portrate from "../statics/portrate.png";
 
 export const HomeContent = () => {
   return (
-    <div className="bg-gray-950 md:flex justify-center">
+    <div id="home" className="bg-gray-950 md:flex justify-center">
       <div className="flex justify-center">
         <Image
           className="responsive-image"
